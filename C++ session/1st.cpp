@@ -6,6 +6,7 @@ int main()
     int arr[5] = {1, 2, 5, 6, 9};
 
     int ele;
+    cout << "Enter an element to search: ";
     cin >> ele;
 
     bool found = false;
