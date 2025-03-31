@@ -3,7 +3,11 @@ using namespace std;
 
 int main()
 {
-    int arr[5] = {1, 2, 5, 6, 9};
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    
+    int arr[size] = {1, 2, 5, 6, 9};
 
     int ele;
     cout << "Enter an element to search: ";
