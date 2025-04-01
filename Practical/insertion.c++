@@ -21,7 +21,7 @@ int main() {
     cout << "Enter the position at which the element is to be inserted: ";
     cin >> position;
 
-    for (int i = size; i > position; i--)
+    for (int i = size; i >= position; i--)
     {
         arr[i] = arr[i - 1];
     }
@@ -32,6 +32,5 @@ int main() {
     {
         cout << arr[i] << " ";
     }
-
     return 0;
 }

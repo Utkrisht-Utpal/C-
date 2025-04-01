@@ -24,7 +24,7 @@ int main()
     while (st <= end)
     {
         mid = (st + end)/2;
-        if (Sle == arr[mid])
+        if (arr[mid] == Sle)
         {
             result = mid;
             break;

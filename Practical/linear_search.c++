@@ -31,7 +31,7 @@ int main()
         }
     }
 
-    if (count == 0)
+    if (count == -1)
     {
         cout << "The entered element is not there in the array.";
     }
