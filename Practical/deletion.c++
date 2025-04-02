@@ -19,8 +19,7 @@ int main()
     cout << "Enter the position of the element to be deleted: ";
     cin >> pos;
 
-
-    for(int i = pos - 1; i < size - 1; i++)
+    for(int i = pos - 1; i < size; i++)
     {
         arr[i] = arr[i + 1];
     }
