@@ -1,36 +1,39 @@
-// write a program to do insertion in array.
-
 #include <iostream>
 using namespace std;
 
-int main() {
-    int size;
-    cout << "Enter the number of elements in the array: ";
-    cin >> size;
+int main ()
+{
+    int n;
+    cout << "Enter the array size: ";
+    cin >> n;
+    int arr[n];
 
-    int arr[size];
-
-    for(int i = 0; i < size; i++)
+    cout << "Enter the array elements: ";
+    for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    int element, position;
-    cout << "Enter the element to be inserted: ";
-    cin >> element;
-    cout << "Enter the position at which the element is to be inserted: ";
-    cin >> position;
+    int pos;
+    cout << "Enter the position at which you want to enter the element: ";
+    cin >> pos;
+    
+    int ele;
+    cout << "Enter the element want to enter: ";
+    cin >> ele;
 
-    for (int i = size; i >= position; i--)
+    pos--;
+
+    for (int i = n; i > pos; i--)
     {
         arr[i] = arr[i - 1];
     }
-    arr[position - 1] = element;
-    size++;
+    arr[pos] = ele;
+    n++;
 
-    for(int i = 0; i < size; i++)
+    for (int i = 0; i < n; i++)
     {
-        cout << arr[i] << " ";
+        cout << arr[i] << endl;
     }
     return 0;
 }
