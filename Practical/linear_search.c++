@@ -5,13 +5,13 @@ using namespace std;
 
 int main()
 {
-    int size;
+    int n;
     cout << "Enter the size of the array: ";
-    cin >> size;
+    cin >> n;
 
-    int arr[size];
+    int arr[n];
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
@@ -20,23 +20,26 @@ int main()
     cout << "Enter the element to search: ";
     cin >> ele;
 
-    int count = -1;
+    bool ispresent = false;
+    int result = -1;
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < n; i++)
     {
         if (arr[i] == ele)
         {
-            count = i;
-            break;
+            ispresent = true;5
+            result = i;
         }
     }
 
-    if (count == -1)
+    if (ispresent == false)
     {
-        cout << "The entered element is not there in the array.";
+        cout << "Element not found in the array";
     }
-    else
-    {
-        cout << "The array is found at " << count + 1 << " position.";
+
+    else{
+        cout << "Element found at position. " << result + 1;
     }
+
+    return 0;
 }

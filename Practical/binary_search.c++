@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    int n, Sle;
+    int n, ele;
     cout << "Enter the number of elements in the array: ";
     cin >> n;
     
@@ -16,28 +16,33 @@ int main()
     }
 
     cout << "Enter the element to search: ";
-    cin >> Sle;
+    cin >> ele;
 
-    int mid, st = 0, end = n - 1;
     int result = -1;
+    int start = 0;
+    int end = n - 1;
+    int mid;
 
-    while (st <= end)
-    {
-        mid = (st + end)/2;
-        if (arr[mid] == Sle)
+        while (start <= end)
         {
-            result = mid;
-            break;
+            mid = (start + end) / 2;
+            
+            if (arr[mid] == ele)
+            {
+                result = mid;
+                break;
+            }
+
+            else if (ele > arr[mid])
+            {
+                start = mid + 1;
+            }
+
+            else if (ele < arr[mid])
+            {
+                end = mid - 1;
+            }
         }
-        else if (Sle < arr[mid])
-        {
-            end = mid - 1;   
-        }
-        else
-        {
-            st = mid + 1;            
-        }
-    }
 
     if (result == -1)
     {
