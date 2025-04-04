@@ -6,17 +6,17 @@ int main()
     int n = 5;
     int arr[n] = {56, 24, 2, 4, 18};
 
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
         int minterm = i;
-        for(int j = i + 1; j < n; j++)
+        for (int j = i + 1; j < n; j++)
         {
             if(arr[j] < arr[minterm])
             {
                 minterm = j;
             }
         }
-        swap(arr[i],arr[minterm]);
+        swap(arr[i], arr[minterm]);
     }
     
     for (int i = 0; i < n; i++)
