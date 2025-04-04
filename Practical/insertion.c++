@@ -1,39 +1,40 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-int main ()
+int main()
 {
     int n;
-    cout << "Enter the array size: ";
+    cout << "Enter the size of the array: ";
     cin >> n;
+
     int arr[n];
 
     cout << "Enter the array elements: ";
-    for (int i = 0; i < n; i++)
+    for(int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    int pos;
-    cout << "Enter the position at which you want to enter the element: ";
-    cin >> pos;
-    
     int ele;
-    cout << "Enter the element want to enter: ";
+    cout << "Enter the element you want to insert: ";
     cin >> ele;
 
-    pos--;
+    int pos;
+    cout << "Enter the position at which you want to insert the element: ";
+    cin >> pos;
 
-    for (int i = n; i > pos; i--)
+    for (int i = n; i >= pos - 1; i--)
     {
-        arr[i] = arr[i - 1];
+        arr[i + 1] = arr[i];
     }
-    arr[pos] = ele;
+    arr[pos - 1] = ele;
     n++;
-
-    for (int i = 0; i < n; i++)
+    
+    cout << "The array elements are: ";
+    for(int i = 0; i < n; i++)
     {
         cout << arr[i] << endl;
     }
+
     return 0;
 }

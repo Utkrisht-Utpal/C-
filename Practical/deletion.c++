@@ -3,14 +3,14 @@ using namespace std;
 
 int main()
 {
-    int size;
+    int n;
     cout << "Enter the size of the array: ";
-    cin >> size;
+    cin >> n;
     
-    int arr[size];
+    int arr[n];
 
     cout << "Enter the elements of the array: ";
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
@@ -19,14 +19,14 @@ int main()
     cout << "Enter the position of the element to be deleted: ";
     cin >> pos;
 
-    for(int i = pos - 1; i < size; i++)
+    for (int i = pos - 1; i < n; i++)
     {
         arr[i] = arr[i + 1];
     }
-    size--;
+    n--;
 
     cout << "Array after deletion: ";
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
     }
