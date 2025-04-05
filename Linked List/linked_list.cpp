@@ -1,36 +1,54 @@
 #include <iostream>
-using namespace std;
+using namespace std; 
 
-struct Node {
+struct Node{
     int data;
-    struct Node* Address;
+    Node* next;
 };
 
-int main() {
-    struct Node* head = NULL;
-    struct Node* n1 = new Node();
-    struct Node* n2 = new Node();
-    struct Node* n3 = new Node();
+void printlist(Node* head)
+{
+    Node* temp = head;
 
-    n1->data = 10;
-    (*n2).data = 20;
-    n3->data = 30;
+    while(temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
 
-    n1->Address = n2;
-    n2->Address = n3;
-    n3->Address = NULL;
-    head = n1;
+int main ()
+{
+    int n;
+    cout << "How many nodes do you want in your linked list: ";
+    cin >> n;
 
-    struct Node* p = head;
+    int value;
+    cout << "Enter the value for node 1: ";
+    cin >> value;
 
-    while (p != NULL) {
-        cout << p->data << endl;
-        p = p->Address;
+    Node* Head = new Node();
+    Head -> data = value;
+    Head -> next = NULL;
+
+    Node* temp = Head;
+
+    for(int i = 2; i <= n; i++)
+    {
+        int value;
+        cout << "Enter the value for node " << i << " : ";
+        cin >> value;
+
+        Node* newNode = new Node();
+        newNode -> data = value;
+        newNode -> next = NULL;
+
+        temp-> next = newNode;
+        temp = newNode;
     }
 
-    delete n1;
-    delete n2;
-    delete n3;
+    printlist(Head);
 
     return 0;
 }
