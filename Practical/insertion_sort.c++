@@ -18,7 +18,7 @@ int main()
     // cin >> arr[i];
     // }
 
-    for (int i = 1; i < n; i++)
+    for(int i = 0; i < n; i++)
     {
         int current = arr[i];
         int j = i - 1;
