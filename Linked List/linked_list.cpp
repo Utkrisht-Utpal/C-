@@ -1,54 +1,60 @@
 #include <iostream>
-using namespace std; 
+using namespace std;
 
 struct Node{
     int data;
     Node* next;
 };
 
-void printlist(Node* head)
+Node* head = NULL;
+
+void Insert(int d){
+    Node* newNode = new Node;
+    newNode -> data = d;
+    newNode -> next = NULL;
+
+    if(head == NULL){
+        head = newNode;
+    }
+    else{
+        Node* temp = head;
+        while(temp -> next != NULL){
+            temp = temp -> next;
+        }
+        temp -> next = newNode;
+    }
+}
+
+void print()
 {
     Node* temp = head;
-
-    while(temp != NULL)
+    if (head == NULL)
     {
-        cout << temp->data << " ";
-        temp = temp->next;
+        cout << "The List is empty..." << endl;
+        return;
+    }
+    while(temp != NULL) {
+        cout << temp -> data << " ";
+        temp = temp -> next;
     }
     cout << endl;
 }
 
-int main ()
+int main()
 {
-    int n;
-    cout << "How many nodes do you want in your linked list: ";
-    cin >> n;
+    int size, d;
 
-    int value;
-    cout << "Enter the value for node 1: ";
-    cin >> value;
+    cout << "Enter the size of the linkedlist: ";
+    cin >> size;
 
-    Node* Head = new Node();
-    Head -> data = value;
-    Head -> next = NULL;
-
-    Node* temp = Head;
-
-    for(int i = 2; i <= n; i++)
+    for (int i = 0; i < size; i++)
     {
-        int value;
-        cout << "Enter the value for node " << i << " : ";
-        cin >> value;
-
-        Node* newNode = new Node();
-        newNode -> data = value;
-        newNode -> next = NULL;
-
-        temp-> next = newNode;
-        temp = newNode;
+        cout << "Enter the " << i + 1 << " value: ";
+        cin >> d;
+        Insert (d);
     }
-
-    printlist(Head);
+    
+    print();
 
     return 0;
 }
