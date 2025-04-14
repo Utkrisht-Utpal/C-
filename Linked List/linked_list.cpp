@@ -8,32 +8,32 @@ struct Node{
 
 Node* head = NULL;
 
-void Insert(int d){
+void Insert(int value)
+{
     Node* newNode = new Node;
-    newNode -> data = d;
+    newNode -> data = value;
     newNode -> next = NULL;
 
-    if(head == NULL){
+    if (head == NULL)
+    {
         head = newNode;
     }
-    else{
+    else
+    {
         Node* temp = head;
-        while(temp -> next != NULL){
+        while(temp -> next != NULL)
+        {
             temp = temp -> next;
         }
         temp -> next = newNode;
     }
 }
 
-void print()
+void printlist()
 {
     Node* temp = head;
-    if (head == NULL)
+    while(temp != NULL)
     {
-        cout << "The List is empty..." << endl;
-        return;
-    }
-    while(temp != NULL) {
         cout << temp -> data << " ";
         temp = temp -> next;
     }
@@ -42,19 +42,19 @@ void print()
 
 int main()
 {
-    int size, d;
+    int size, value;
 
-    cout << "Enter the size of the linkedlist: ";
+    cout << "Enter the size of linked List: ";
     cin >> size;
 
-    for (int i = 0; i < size; i++)
+    for(int i = 0; i < size; i++)
     {
-        cout << "Enter the " << i + 1 << " value: ";
-        cin >> d;
-        Insert (d);
+        cout << "Enter the " << i + 1 << " number: ";
+        cin >> value;
+        Insert(value);
     }
-    
-    print();
 
+    printlist();
+    
     return 0;
 }
