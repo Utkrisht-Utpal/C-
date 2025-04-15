@@ -1,71 +1,81 @@
 #include <iostream>
 using namespace std;
 
-class Stack {
-    const int Max = 5;
+#define MAX 10
+
+class Stack{
+    public:
+    int arr[MAX];
     int top;
-    int arr[5];
-public:
-    Stack() {
+
+    Stack(){
         top = -1;
     }
 
-    void push(int x) {
-        if (top == Max - 1) {
-            cout << "Stack Overflow" << endl;
-            return;
-        }
-        arr[++top] = x;
-    }
 
-    void pop() {
-        if (top == -1) {
-            cout << "Stack Underflow" << endl;
-            return;
-        }
-        cout << "Popped element: " << arr[top--] << endl;
+void push(int d)
+{
+    if (top == MAX - 1)
+    {
+        cout << "Stack overflow" << endl;
+        return;
     }
+    top++;
+    arr[top] = d;
+    cout << "Pushed to stack: " << d << endl;
+}
 
-    void display() {
-        if (top == -1) {
-            cout << "Stack is empty" << endl;
-            return;
-        }
-        cout << "Stack elements: ";
-        for (int i = top; i >= 0; i--) {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
+void pop()
+{
+    if(top == -1)
+    {
+        cout << "Stack underflow" << endl;
+        return;
     }
+    cout << "Popped element is: " << arr[top] << endl;
+    top--;
+}
+
+void peek()
+{
+    if(top == -1)
+    {
+        cout << "The stack is empty" << endl;
+        return;
+    }
+    cout << "Top element is: " << arr[top] << endl;
+}
+
+void size()
+{
+    cout << "The stack is of " << top + 1 << " size." << endl;
+}
+
+void display(){
+    cout << "Stack Elements are: ";
+    for (int i = top; i >= 0; i--)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 };
 
-int main() {
+int main()
+{
     Stack s;
-    int choice, value;
 
-    do {
-        cout << "\n1. Push\n2. Pop\n3. Display\n4. Exit\nEnter your choice: ";
-        cin >> choice;
+    s.push(2);
+    s.push(4);
+    s.push(6);
+    s.push(8);
+    s.push(12);
+    s.push(14);
 
-        switch (choice) {
-            case 1:
-                cout << "Enter value to push: ";
-                cin >> value;
-                s.push(value);
-                break;
-            case 2:
-                s.pop();
-                break;
-            case 3:
-                s.display();
-                break;
-            case 4:
-                cout << "Exiting..." << endl;
-                break;
-            default:
-                cout << "Invalid choice" << endl;
-        }
-    } while (choice != 4);
+    s.display();
 
+    s.pop();
+    s.display();
+    
     return 0;
 }
