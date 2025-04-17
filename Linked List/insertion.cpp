@@ -1,42 +1,59 @@
-// write a program to insert a node at the beginning of a linked list.
-
 #include <iostream>
 using namespace std;
 
-struct Node {
+struct Node{
     int data;
     Node* next;
 };
 
 Node* head = NULL;
 
-void insert(int x) {
-    Node* temp = new Node();
-    temp->data = x;
-    temp->next = head;
-    head = temp;
+void push(int d)
+{
+    Node* newNode = new Node;
+    newNode -> data = (d);
+    newNode -> next = NULL;
+    
+    if(head == NULL)
+    {
+        head = newNode;
+    }
+    
+    else{
+        Node* temp = head;
+        while(temp -> next != NULL)
+        {
+            temp = temp -> next;
+        }
+        temp -> next = newNode;
+    }
 }
 
-void print() {
+void printlist()
+{    
     Node* temp = head;
-    cout << "Linked List is: ";
-    while (temp != NULL) {
-        cout << temp->data << " ";
-        temp = temp->next;
+    while(temp != NULL)
+    {
+        cout << temp -> data << " ";
+        temp = temp -> next;
     }
-    cout << endl;
 }
 
-int main() {
-    head = NULL;
-    cout << "How many numbers?" << endl;
-    int n, x;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter the number" << endl;
-        cin >> x;
-        insert(x);
+int main(){
+
+    int size, d;
+    cout << "Enter the size of linked list: ";
+    cin >> size;
+
+    for(int i = 0; i < size; i++)
+    {
+        cout << "Enter the data of node " << i + 1 << " : ";
+        cin >> d;
+        push(d);
     }
-    print();
+
+    cout << "The linked list is: ";
+    printlist();
+
     return 0;
 }
