@@ -39,6 +39,22 @@ void printlist()
     }
 }
 
+void search(int key) {
+    Node* temp = head;
+    int position = 1;
+
+    while (temp != nullptr) {
+        if (temp->data == key) {
+            cout << "Value " << key << " found at position " << position << "." << endl;
+            return;
+        }
+        temp = temp->next;
+        position++;
+    }
+
+    cout << "Value " << key << " not found ❌\n";
+}
+
 int main(){
 
     int size, d;
@@ -52,8 +68,11 @@ int main(){
         push(d);
     }
 
+    search(4);
+
     cout << "The linked list is: ";
     printlist();
+
 
     return 0;
 }
