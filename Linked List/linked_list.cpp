@@ -52,8 +52,42 @@ void search(int key) {
         position++;
     }
 
-    cout << "Value " << key << " not found ❌\n";
+    cout << "Value " << key << " not found! \n";
 }
+
+void deleteAtPosition(int pos) {
+    if (head == nullptr) {
+        cout << "List is empty! \n";
+        return;
+    }
+
+    if (pos == 1) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        cout << "Deleted from position 1 \n";
+        return;
+    }
+
+    // Traverse to the node just before the one to delete
+    Node* temp = head;
+    for (int i = 1; i < pos - 1 && temp != nullptr; i++) {
+        temp = temp->next;
+    }
+
+    // Check if position is valid
+    if (temp == nullptr || temp->next == nullptr) {
+        cout << "Position out of range! \n";
+        return;
+    }
+
+    Node* nodeToDelete = temp->next;
+    temp->next = nodeToDelete->next;
+    delete nodeToDelete;
+
+    cout << "Deleted from position " << pos << "." << endl;
+}
+
 
 int main(){
 
@@ -69,6 +103,7 @@ int main(){
     }
 
     search(4);
+    deleteAtPosition(2);
 
     cout << "The linked list is: ";
     printlist();
