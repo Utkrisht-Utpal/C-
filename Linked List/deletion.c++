@@ -1,5 +1,3 @@
-// write a program to delete a node at the beginning of a linked list.
-
 #include <iostream>
 using namespace std;
 
@@ -48,7 +46,7 @@ int main() {
     cin >> n;
     for (int i = 0; i < n; i++) {
         del();
-        print();
     }
+    print();
     return 0;
 }

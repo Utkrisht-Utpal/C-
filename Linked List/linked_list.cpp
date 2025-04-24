@@ -8,106 +8,108 @@ struct Node{
 
 Node* head = NULL;
 
-void push(int d)
+void insert(int d)
 {
     Node* newNode = new Node;
-    newNode -> data = (d);
+    newNode -> data = d;
     newNode -> next = NULL;
-    
+
     if(head == NULL)
     {
         head = newNode;
+        return;
     }
-    
+
     else{
         Node* temp = head;
         while(temp -> next != NULL)
         {
-            temp = temp -> next;
+        temp = temp -> next;
         }
         temp -> next = newNode;
     }
 }
 
-void printlist()
-{    
+void search(int key)
+{
+    int position = 1;
+
+    if (head == NULL)
+    {
+        cout << "The linked list is empty!";
+        return;
+    }
+
+    else
+    {
+        Node* temp = head;
+        while(temp != NULL)
+        {
+            if (temp -> data == key)
+            {
+                cout << "Value found at " << position << endl;
+                return;
+            }
+            temp = temp -> next;
+            position++;
+        }
+        cout << "Value not found in the linked list...";
+    }
+}
+
+void print ()
+{
     Node* temp = head;
     while(temp != NULL)
     {
         cout << temp -> data << " ";
         temp = temp -> next;
     }
+    cout << endl;
 }
 
-void search(int key) {
-    Node* temp = head;
-    int position = 1;
+int main()
+{
+    int d, key;
+    int ch;
 
-    while (temp != nullptr) {
-        if (temp->data == key) {
-            cout << "Value " << key << " found at position " << position << "." << endl;
-            return;
-        }
-        temp = temp->next;
-        position++;
-    }
+    while(true){
+    cout << "Select an operation: " << endl;
+    cout << "1. Insert a value" << endl;
+    cout << "2. Search a value" << endl;
+    cout << "3. Print the linked list" << endl;
+    cout << "4. Exit" << endl;
+    cin >> ch;
 
-    cout << "Value " << key << " not found! \n";
-}
-
-void deleteAtPosition(int pos) {
-    if (head == nullptr) {
-        cout << "List is empty! \n";
-        return;
-    }
-
-    if (pos == 1) {
-        Node* temp = head;
-        head = head->next;
-        delete temp;
-        cout << "Deleted from position 1 \n";
-        return;
-    }
-
-    // Traverse to the node just before the one to delete
-    Node* temp = head;
-    for (int i = 1; i < pos - 1 && temp != nullptr; i++) {
-        temp = temp->next;
-    }
-
-    // Check if position is valid
-    if (temp == nullptr || temp->next == nullptr) {
-        cout << "Position out of range! \n";
-        return;
-    }
-
-    Node* nodeToDelete = temp->next;
-    temp->next = nodeToDelete->next;
-    delete nodeToDelete;
-
-    cout << "Deleted from position " << pos << "." << endl;
-}
-
-
-int main(){
-
-    int size, d;
-    cout << "Enter the size of linked list: ";
-    cin >> size;
-
-    for(int i = 0; i < size; i++)
+    switch(ch)
     {
-        cout << "Enter the data of node " << i + 1 << " : ";
-        cin >> d;
-        push(d);
+        case 1: {
+            cout << "Enter the value you want to insert: ";
+            cin >> d;
+            insert(d);
+            break;
+        }
+
+        case 2: {
+            cout << "Enter the value you want to search: ";
+            cin >> key;
+            search(key);
+            break;
+        }
+
+        case 3: {
+            print();
+            break;
+        }
+
+        case 4: {
+            cout << "Exiting the program...";
+            return 0;
+        }
+
+        default:
+            cout << "Enter a valid choice!" << endl;
     }
-
-    search(4);
-    deleteAtPosition(2);
-
-    cout << "The linked list is: ";
-    printlist();
-
-
+}   
     return 0;
 }
