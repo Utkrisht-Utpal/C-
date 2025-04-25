@@ -22,4 +22,6 @@ int main()
     {
         cout << arr[i] << endl;
     }
+
+    return 0;
 }

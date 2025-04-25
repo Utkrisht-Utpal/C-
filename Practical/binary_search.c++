@@ -1,5 +1,3 @@
-// // write a program to demonstrate the use of binary search to search a given element in a sorted array that is declared in ascending order.
-
 #include <iostream>
 using namespace std;
 

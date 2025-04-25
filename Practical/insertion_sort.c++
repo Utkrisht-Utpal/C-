@@ -3,38 +3,24 @@ using namespace std;
 
 int main()
 {
+    int n = 5;
+    int arr[n] = {56, 12, 71, 2, 8};
 
-    int n;
-    n = 5;
-    // cout << "Enter the size of the array: ";
-    // cin >> n;
-
-    int arr[n] = {56, 24, 2, 4, 18};
-
-    // int arr[n];
-    // cout << "Enter the elements of the array: ";
-    // for(int i = 0; i < n; i++)
-    // {
-    // cin >> arr[i];
-    // }
-
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         int current = arr[i];
         int j = i - 1;
-        
-        while(j >= 0 && arr[j] > current)
-        {
-            arr[j + 1] = arr[j];
-            j--;
+            while(j >= 0 && current < arr[j])
+            {
+                arr[j+1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = current;
         }
-        arr[j + 1] = current;
-    }
 
-    cout << "Sorted array is: " << endl;
     for (int i = 0; i < n; i++)
     {
-        cout << arr[i] << endl;
+        cout << arr[i] << " ";
     }
 
     return 0;
