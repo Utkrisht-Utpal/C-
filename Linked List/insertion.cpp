@@ -8,7 +8,7 @@ struct Node{
 
 Node* head = NULL;
 
-void push(int d)
+void insert(int d)
 {
     Node* newNode = new Node;
     newNode -> data = (d);
@@ -27,6 +27,31 @@ void push(int d)
         }
         temp -> next = newNode;
     }
+}
+
+void insertAtPosition(int d, int pos) {
+    Node* newNode = new Node;
+    newNode->data = d;
+    newNode->next = NULL;
+
+    if (pos == 1) {
+        newNode->next = head;
+        head = newNode;
+        return;
+    }
+
+    Node* temp = head;
+    for (int i = 1; temp != NULL && i < pos - 1; i++) {
+        temp = temp->next;
+    }
+
+    if (temp == NULL) {
+        cout << "Position out of range!" << endl;
+        return;
+    }
+
+    newNode->next = temp->next;
+    temp->next = newNode;
 }
 
 void printlist()
@@ -49,7 +74,7 @@ int main(){
     {
         cout << "Enter the data of node " << i + 1 << " : ";
         cin >> d;
-        push(d);
+        insert(d);
     }
 
     cout << "The linked list is: ";

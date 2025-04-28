@@ -6,7 +6,7 @@ using namespace std;
 class Stack{
     public:
     int arr[MAX];
-    int top;
+int top;
 
     Stack(){
         top = -1;

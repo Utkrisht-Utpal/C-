@@ -12,7 +12,7 @@ void insert(int x) {
     Node* temp = new Node();
     temp->data = x;
     temp->next = head;
-    head = temp;
+head = temp;
 }
 
 void del() {
