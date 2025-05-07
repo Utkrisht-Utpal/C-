@@ -16,7 +16,7 @@ int main ()
                 minindex = j;
             }
         }
-        swap(arr[i], arr[minindex]);
+        swap (arr[i], arr[minindex]);
     }
     
         for (int i = 0; i < n; i++)
