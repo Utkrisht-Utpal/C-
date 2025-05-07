@@ -1,4 +1,4 @@
-// // write a program to demonstrate the use of linear search to search a given element in an array.
+// write a program to demonstrate the use of linear search to search a given element in an array.
 
 #include <iostream>
 using namespace std;

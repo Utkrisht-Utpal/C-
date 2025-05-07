@@ -16,32 +16,30 @@ int main()
     cout << "Enter the element to search: ";
     cin >> ele;
 
-    int result = -1;
     int start = 0;
-    int end = n - 1;
     int mid;
+    int end = n - 1;
+    int result = -1;
 
-        while (start <= end)
+    while(start <= end)
+    {
+        mid = (start + end) / 2;
+        if (arr[mid] == ele)
         {
-            mid = (start + end) / 2;
-            
-            if (arr[mid] == ele)
-            {
-                result = mid;
-                break;
-            }
-
-            else if (ele > arr[mid])
-            {
-                start = mid + 1;
-            }
-
-            else if (ele < arr[mid])
-            {
-                end = mid - 1;
-            }
+            result = mid;
+            break;
+        }
+        else if (arr[mid] < ele)
+        {
+            start = mid + 1;
+        }
+        else if(arr[mid] > ele)
+        {
+            end = mid - 1;
         }
 
+    }  
+   
     if (result == -1)
     {
         cout << "Element not found in this array.";
@@ -53,3 +51,29 @@ int main()
 
     return 0;
 }
+
+// int result = -1;
+// int start = 0;
+// int end = n - 1;
+// int mid;
+
+//     while (start <= end)
+//     {
+//         mid = (start + end) / 2;
+        
+//         if (arr[mid] == ele)
+//         {
+//             result = mid;
+//             break;
+//         }
+
+//         else if (ele > arr[mid])
+//         {
+//             start = mid + 1;
+//         }
+
+//         else if (ele < arr[mid])
+//         {
+//             end = mid - 1;
+//         }
+//     }
