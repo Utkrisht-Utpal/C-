@@ -8,15 +8,15 @@ int main ()
 
     for(int i = 0; i < n; i++)
     {
-        int minterm = i;
+        int minindex = i;
         for(int j = i + 1; j < n; j++)
         {
-            if(arr[j] < arr[minterm])
+            if(arr[j] < arr[minindex])
             {
-                minterm = j;
+                minindex = j;
             }
         }
-        swap(arr[i], arr[minterm]);
+        swap(arr[i], arr[minindex]);
     }
     
         for (int i = 0; i < n; i++)
