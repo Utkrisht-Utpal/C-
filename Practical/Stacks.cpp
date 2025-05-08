@@ -3,62 +3,52 @@ using namespace std;
 
 #define MAX 10
 
-class Stack{
+class Stack {
     public:
     int arr[MAX];
-int top;
+    int top;
 
-    Stack(){
+    Stack (){
         top = -1;
     }
 
-
-void push(int d)
-{
-    if (top == MAX - 1)
+    void push(int d)
     {
-        cout << "Stack overflow" << endl;
-        return;
+        if (top == MAX - 1)
+        {
+            cout << "Overflow...";
+        }
+        top++;
+        arr[top] = d;
     }
-    top++;
-    arr[top] = d;
-    cout << "Pushed to stack: " << d << endl;
-}
 
-void pop()
-{
-    if(top == -1)
+    void pop ()
     {
-        cout << "Stack underflow" << endl;
-        return;
+        if(top == -1){
+            cout << "Underflow...";
+        }
+        cout << "Popped element: " << arr[top];
+        top--;
+        cout << endl;
     }
-    cout << "Popped element is: " << arr[top] << endl;
-    top--;
-}
 
-void peek()
-{
-    if(top == -1)
+    void peak ()
     {
-        cout << "The stack is empty" << endl;
-        return;
+        if(top == -1)
+        {
+            cout << "The stack is empty...";
+        }
+        cout << "Top element: " << arr[top];
     }
-    cout << "Top element is: " << arr[top] << endl;
-}
-
-void size()
-{
-    cout << "The stack is of " << top + 1 << " size." << endl;
-}
-
-void display(){
-    cout << "Stack Elements are: ";
-    for (int i = top; i >= 0; i--)
+    
+    void display()
     {
-        cout << arr[i] << " ";
+        for (int i = top; i >= 0; i--)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-}
 };
 
 int main()
