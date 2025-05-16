@@ -1,65 +1,32 @@
-#include<iostream>
-#include <string.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
-class Vehicle
-{
+class Vehicle{
     public:
-    string BS_Version;
-    string Nationality;
-    string engine_type;
+    string Name;
+    int no_of_wheels;
+    int no_of_seats;
+    string Type;
 
-    Vehicle()
+    void print()
     {
-        BS_Version = "VII";
-        Nationality = "Indian";
-        engine_type = "Inline";
-    }
-};
-
-
-class Car : public Vehicle
-{
-    public:
-    string company;
-    string colour;
-    int wheels;
-    string AIDAS;
-    string transmission;
-    int Airbags;
-    string ABS;
-    string Mediaplayer;
-
-    Car()
-    {
-        wheels = 4;
-        transmission = "Manual";
-        AIDAS = "Level 1";
-        Airbags = 3;
-        ABS = "Yes";
-        Mediaplayer = "Android Auto";
-    }
-
-    void getdetails()
-    {
-        cout << "Nationality: " << Nationality <<endl;
-        cout << "Company: " << company <<endl;
-        cout << "Engine Type: " << engine_type <<endl;
-        cout << "Colour: " << colour <<endl;
-        cout << "Wheels: " << wheels <<endl;
-        cout << "AIDAS: " << AIDAS<<endl;
-        cout << "Transmission: " << transmission<<endl;
-        cout << "Airbags: " <<Airbags<<endl;
-        cout << "ABS: " << ABS <<endl;
-        cout << "Mediaplayer: " << Mediaplayer <<endl;
+        cout << Name << endl;
+        cout << Type << endl;
+        cout << "No. of wheels" << no_of_wheels << endl;
+        cout << "No of seats: "<< no_of_seats << endl;
     }
 };
 
 int main()
 {
-    Car supra;
-    supra.company = "Toyota";
-    supra.colour = "Carbon Black";
-    supra.getdetails();
+    Vehicle A;
+    A.Name = "Supra";
+    A.Type = "Hyper Car";
+    A.no_of_seats = 2;
+    A.no_of_wheels = 4;
+
+    A.print();
+
     return 0;
 }

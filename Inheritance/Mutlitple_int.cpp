@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Transport {
@@ -25,7 +26,12 @@ public:
     }
 };
 
-class Car : public Transport, public Vehicle { };
+class Car : public Transport, public Vehicle {
+    public:
+    void showCar() {
+        cout << "This car is a " << colour << " " << company << " " << vehicle_type << " with max speed " << max_speed << " km/h!" << endl;
+ }
+};
 
 int main() {
     Car Supra;
@@ -38,6 +44,7 @@ int main() {
     cout << "Supra Details: " << endl;
     Supra.displayDetails();
     Supra.displayType();
-
+    Supra.showCar();
     return 0;
+    
 }
