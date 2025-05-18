@@ -1,44 +1,40 @@
-// write a program to demonstrate the use of linear search to search a given element in an array.
-
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    int n;
-    cout << "Enter the size of the array: ";
-    cin >> n;
-
+int main(){
+    int n = 10;
     int arr[n];
-
-    for (int i = 0; i < n; i++)
+    
+    cout << "Enter the number of elements (max 10):" << endl;
+    cin >> n;
+    
+    cout << "Enter the element of arrays one by one (max 10): " << endl;
+    for(int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    int ele;
+    int key;
     cout << "Enter the element to search: ";
-    cin >> ele;
+    cin >> key;
 
-    bool ispresent = false;
-    int result = -1;
+    int present = -1;
 
-    for (int i = 0; i < n; i++)
+    for(int i = 0; i < n; i++)
     {
-        if (arr[i] == ele)
+        if(arr[i] == key)
         {
-            ispresent = true;5
-            result = i;
+            present = i;
         }
     }
-
-    if (ispresent == false)
+    
+    if(present == -1)
     {
-        cout << "Element not found in the array";
+        cout << "Element not found in the array..." << endl;
     }
 
     else{
-        cout << "Element found at position. " << result + 1;
+        cout << "Element found at " << present + 1<< " position." << endl;
     }
 
     return 0;

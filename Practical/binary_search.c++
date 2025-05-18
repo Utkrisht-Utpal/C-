@@ -37,7 +37,6 @@ int main()
         {
             end = mid - 1;
         }
-
     }  
    
     if (result == -1)
