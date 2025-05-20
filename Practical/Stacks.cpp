@@ -1,49 +1,51 @@
 #include <iostream>
 using namespace std;
 
-#define MAX 10
+#define MAX 5
 
-class Stack {
-    public:
+class stack
+{
     int arr[MAX];
     int top;
-
-    Stack (){
+    
+    public:
+    stack()
+    {
         top = -1;
     }
 
     void push(int d)
     {
-        if (top == MAX - 1)
+        if(top == MAX - 1)
         {
-            cout << "Overflow...";
+            cout << "Overflow Condition..." << endl;
+            return;
         }
-        top++;
-        arr[top] = d;
+        
+        arr[++top] = d;
     }
 
-    void pop ()
-    {
-        if(top == -1){
-            cout << "Underflow...";
-        }
-        cout << "Popped element: " << arr[top];
-        top--;
-        cout << endl;
-    }
-
-    void peak ()
+    void pop()
     {
         if(top == -1)
         {
-            cout << "The stack is empty...";
+            cout << "Underflow..." << endl;
+            return;
         }
-        cout << "Top element: " << arr[top];
+        
+        cout << arr[top] << " Popped!" << endl;
+        top--;
     }
     
     void display()
     {
-        for (int i = top; i >= 0; i--)
+        if(top == -1)
+        {
+            cout << "Underflow..." << endl;
+            return;
+        }
+        
+        for(int i = top; i >= 0; i--)
         {
             cout << arr[i] << " ";
         }
@@ -52,20 +54,43 @@ class Stack {
 };
 
 int main()
-{
-    Stack s;
+{   
+    stack s;
+    int d, choice;
 
-    s.push(2);
-    s.push(4);
-    s.push(6);
-    s.push(8);
-    s.push(12);
-    s.push(14);
+    do
+    {
+    cout << "1. Push" << endl << "2. Pop" << endl << "3. Display" << endl << "4. Exit" << endl;
+    cin >> choice;
 
-    s.display();
-
-    s.pop();
-    s.display();
-    
-    return 0;
-}
+        switch(choice)
+        {
+            case 1: 
+            {
+                cout << "Enter the element to insert in the stack: ";
+                cin >> d;
+                s.push(d);
+                break;
+            }
+            case 2: 
+            {
+                s.pop();
+                break;
+            }
+            case 3: 
+            {
+                s.display();
+                break;
+            }
+            case 4: 
+            {
+                cout << "Exiting the program...";
+                break;
+            }
+            default:
+            {
+                cout << "Please enter a valid choice!";
+            }
+        }
+    } while(choice != 4);
+} 
