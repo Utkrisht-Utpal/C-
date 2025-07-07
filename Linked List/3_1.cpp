@@ -25,6 +25,37 @@ void insert(int d) {
     temp->next = newNode;
 }
 
+void atposition(int p, int d)
+{
+    node* newNode = new node;
+    newNode -> data = d;
+    newNode -> next = NULL;
+    
+    if(p == 1)
+    {
+        newNode -> next = head;
+        head = newNode;
+    }
+
+    else
+    {
+        node* temp = head;
+        for(int i = 1; i < p - 1 && temp != NULL; i++)
+        {
+            temp = temp -> next;
+        }
+
+        if(temp == NULL)
+        {
+            cout << "Position not out of range..." << endl;
+            return;
+        }
+
+        newNode -> next = temp -> next;
+        temp -> next = newNode ;
+    }
+}
+
 void search(int key) {
     int position = 1;
     node* temp = head;
@@ -70,7 +101,8 @@ int main()
     cout << "1. Insert a value" << endl;
     cout << "2. Search a value" << endl;
     cout << "3. Print the linked list" << endl;
-    cout << "4. Exit" << endl;
+    cout << "4. Insert at position" << endl;
+    cout << "5. Exit" << endl;
     cin >> ch;
 
     switch(ch)
@@ -95,6 +127,14 @@ int main()
         }
 
         case 4: {
+            int pos;
+            cout << "Enter the position where you want to insert and the value: ";
+            cin >> pos >> d;
+            atposition(pos, d);
+            break;
+        }
+
+        case 5: {
             cout << "Exiting the program...";
             return 0;
         }
