@@ -37,7 +37,7 @@ void insertAtPosition(int d, int pos) {
     if (pos == 1) {
         newNode->next = head;
         head = newNode;
-        return;
+        return; 
     }
 
     Node* temp = head;
